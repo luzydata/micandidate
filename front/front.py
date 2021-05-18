@@ -27,16 +27,20 @@ def index():
     print('Validando forma')
     if form.validate_on_submit():
         session['consulta'] = form.consulta.data
-        print('Valoda')
+        print('Valida')
         return redirect(url_for('resutado'))
     return render_template('index.html', form=form)
 
 @app.route('/resutado')
 def resutado():
+    print('try output = querry_for()')
     try:
         output = querry_for()
-    except ServerError:
-        print('querry_for function error.')
+    except:
+        print('querry_for presented an error')
+    finally:
+        print(output)
+        print('will pass to render_template')
     return render_template('resutado.html', output=output)
 
 ##############################################################################
