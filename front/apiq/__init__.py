@@ -10,7 +10,7 @@ BASE = 'https://e7f1hlosbh.execute-api.us-east-2.amazonaws.com/staging/'
 def get_token():
     token=''
     print('--Getting token from file.')
-    with open("./apiq/token.txt") as fp:
+    with open("token.txt") as fp:
         token = fp.readlines()[0].strip()
     return token
 
