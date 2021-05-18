@@ -9,7 +9,11 @@ BASE = 'https://e7f1hlosbh.execute-api.us-east-2.amazonaws.com/staging/'
 
 def get_token():
     token=''
+<<<<<<< HEAD
     # print('--Getting token.')
+=======
+    print('--Getting token from file.')
+>>>>>>> 408e3fb8dacbb15c03f720519f52c2303d47912b
     with open("token.txt") as fp:
         token = fp.readlines()[0].strip()
     # print(token)
