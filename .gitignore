@@ -1,3 +1,4 @@
 
-front/apiq/token.txt
-front/apiq/__pycache__/*
+token.txt
+/__pycache__/*
+*.pyc
