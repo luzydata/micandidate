@@ -22,30 +22,20 @@ class Consulta(FlaskForm):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    print('Creando forma')
     form = Consulta()
-    print('Validando forma')
     if form.validate_on_submit():
         session['consulta'] = form.consulta.data
-        print('Valida')
         return redirect(url_for('resutado'))
     return render_template('index.html', form=form)
 
+##############################
+###### CONSULTA API ##########
+##############################
 @app.route('/resutado')
 def resutado():
-    print('try output = querry_for()')
-    try:
-        output = querry_for()
-    except:
-        print('querry_for presented an error')
-    finally:
-        print(output)
-        print('will pass to render_template')
+    output = querry_for('area', session['consulta'])
     return render_template('resutado.html', output=output)
 
-##############################################################################
-################## CONSULTA API ##############################################
-##############################################################################
 
 if __name__ == '__main__':
     app.run(debug=True)
