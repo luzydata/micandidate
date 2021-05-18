@@ -9,10 +9,10 @@ BASE = 'https://e7f1hlosbh.execute-api.us-east-2.amazonaws.com/staging/'
 
 def get_token():
     token=''
-    print('--Getting token.')
+    # print('--Getting token.')
     with open("token.txt") as fp:
         token = fp.readlines()[0].strip()
-    print(token)
+    # print(token)
     return token
 
 
@@ -24,15 +24,12 @@ def querry_for(endpoint="area", value='0'):
     membership
     party
     """
-    print('Running get_token.')
+    # print('Running get_token.')
     auth_header = {'Authorization': str(get_token())}
     response = requests.get(BASE+str(endpoint)+'/'+str(value),
                             headers=auth_header,
                             verify=True,
                             timeout=None)
-    # {'message': 'The incoming token has expired'}
-
-    print(response)
+    # TODO: {'message': 'The incoming token has expired'}
+    print(response.status_code)
     return response.json()
-    # print(jsonResponse["election_identifier"])
-    # person_ids = jsonResponse["person_ids"]
