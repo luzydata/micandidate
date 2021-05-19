@@ -36,6 +36,7 @@ def resutado():
     token, df = get_local_data()
     contest = query_for(token, "contest", session['consulta'])
     persons = get_persons(token, contest)
+    
 
     output = []
     output = [contest, persons]
