@@ -1,39 +1,53 @@
 import pandas as pd
 import requests
+import os
 
 
 ##############################################################################
 ################## API BASE ##################################################
 ##############################################################################
 BASE = 'https://e7f1hlosbh.execute-api.us-east-2.amazonaws.com/staging/'
+def move(directory=''):
+    current_dir = os.getcwd()
+    if directory != '':
+        os.chdir(current_dir + directory)
+    else:
+        move_to = input('Where to move?')
+        os.chdir(current_dir + move_to)
 
-def get_token():
+def get_local_data():
+    move('/apiq/')
     token=''
-<<<<<<< HEAD
-    # print('--Getting token.')
-=======
-    print('--Getting token from file.')
->>>>>>> 408e3fb8dacbb15c03f720519f52c2303d47912b
     with open("token.txt") as fp:
         token = fp.readlines()[0].strip()
-    # print(token)
-    return token
+    print(token)
+    df = pd.read_csv('seccion_to_contest.csv')
+    move('/../')
+    return token, df
 
-
-def querry_for(endpoint="area", value='0'):
-    """
-    area
-    contest_id
-    person
-    membership
-    party
-    """
+def query_for(token, endpoint="contest", value='1'):
     # print('Running get_token.')
-    auth_header = {'Authorization': str(get_token())}
+    auth_header = {'Authorization': str(token)}
     response = requests.get(BASE+str(endpoint)+'/'+str(value),
                             headers=auth_header,
                             verify=True,
                             timeout=None)
     # TODO: {'message': 'The incoming token has expired'}
+    # TODO: handle status codes
     print(response.status_code)
-    return response.json()
+    if response.status_code != 200:
+        print('no ok response =//')
+    else:
+        return response.json()
+
+def get_persons(token, contest):
+    persons = contest['person_ids']
+    my_out = []
+    for person in persons:
+        my_out.append(query_for(token, 'person', person))
+    return my_out
+
+if __name__ == '__main__':
+    token, df = get_local_data()
+    x = query_for(token, "contest", 1)
+    print(get_persons(token, x))

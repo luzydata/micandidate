@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from apiq import querry_for
+from apiq import get_local_data, query_for, get_persons
 
 app = Flask(__name__)
 app.config['SECRET_KEY']= 'my_secret_key'
@@ -12,7 +12,7 @@ app.config['SECRET_KEY']= 'my_secret_key'
 ##############################################################################
 
 class Consulta(FlaskForm):
-    consulta = StringField('¿Qué area te gustaría consultar?', validators=[DataRequired()])
+    consulta = StringField('¿Qué CONTEST te gustaría consultar? ', validators=[DataRequired()])
     submit = SubmitField('Informarse')
 
 
@@ -31,10 +31,15 @@ def index():
 ##############################
 ###### CONSULTA API ##########
 ##############################
-@app.route('/resutado')
+@app.route('/resultado')
 def resutado():
-    output = querry_for('area', session['consulta'])
-    return render_template('resutado.html', output=output)
+    token, df = get_local_data()
+    contest = query_for(token, "contest", session['consulta'])
+    persons = get_persons(token, contest)
+
+    output = []
+    output = [contest, persons]
+    return render_template('resultado.html', output=output)
 
 
 if __name__ == '__main__':
