@@ -2,15 +2,19 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Tu Candidate!</title>
     </head>
     <body>
-        <h1>Tu candidate!</h1>
+        <h1>@@ Tu Candidate! @@</h1>
+        <p>Más milenials voluntarios por un país les convoca. </p>
         <!-- <p>{{seccion_electoral}}</p> -->
 
         <form class="" method="post">
+            {{ form.seccion_electoral.label}}<br>{{ form.seccion_electoral}}
+            <br>
+            <br>
             {{ form.hidden_tag()}}
-            {{ form.consulta.label}}{{ form.consulta}}
+            {{ form.consulta.label}}<br>{{ form.consulta}}
             <br>
             {{form.submit()}}
         </form>

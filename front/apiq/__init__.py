@@ -42,10 +42,10 @@ def query_for(token, endpoint="contest", value='1'):
 
 def get_persons(token, contest):
     persons = contest['person_ids']
-    my_out = []
+    persons2 = []
     for person in persons:
-        my_out.append(query_for(token, 'person', person))
-    return my_out
+        persons2.append(query_for(token, 'person', person))
+    return persons2
 
 if __name__ == '__main__':
     token, df = get_local_data()

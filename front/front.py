@@ -12,8 +12,15 @@ app.config['SECRET_KEY']= 'my_secret_key'
 ##############################################################################
 
 class Consulta(FlaskForm):
-    consulta = StringField('¿Qué CONTEST te gustaría consultar? ', validators=[DataRequired()])
-    submit = SubmitField('Informarse')
+    seccion_electoral = StringField(
+                                    '¿Qué CONTEST te gustaría consultar? ',
+                                    # validators=[DataRequired()],
+                                    )
+    consulta = StringField(
+                            '¿Qué SECCION te gustaría consultar? ',
+                            # validators=[DataRequired()],
+                            )
+    submit = SubmitField('Informarse' )
 
 
 ##############################################################################
@@ -25,6 +32,7 @@ def index():
     form = Consulta()
     if form.validate_on_submit():
         session['consulta'] = form.consulta.data
+        session['seccion_electoral'] = form.seccion_electoral.data
         return redirect(url_for('resutado'))
     return render_template('index.html', form=form)
 
@@ -36,7 +44,7 @@ def resutado():
     token, df = get_local_data()
     contest = query_for(token, "contest", session['consulta'])
     persons = get_persons(token, contest)
-    
+
 
     output = []
     output = [contest, persons]
