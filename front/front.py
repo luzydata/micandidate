@@ -2,10 +2,12 @@ from flask import Flask, render_template, session, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from apiq import querry_for
+from apiq import querry_for, get_dictionary
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY']= 'my_secret_key'
+df = get_dictionary()
 
 ##############################################################################
 ################## FORM ######################################################
@@ -33,8 +35,12 @@ def index():
 ##############################
 @app.route('/resutado')
 def resutado():
-    output = querry_for('area', session['area_electoral'])
-    return render_template('resutado.html', output=output)
+    # TODO: mover diccionario
+
+    search = session['area_electoral']
+    to_query = df.loc[df.SECCION == int(search)]['Contest_id'].values[0]
+    res = querry_for('contest', to_query)
+    return render_template('resutado.html', output=res)
 
 
 if __name__ == '__main__':

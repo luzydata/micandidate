@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import os
 
 
 ##############################################################################
@@ -14,7 +15,6 @@ def get_token():
         token = fp.readlines()[0].strip()
     return token
 
-
 def querry_for(endpoint="area", value='0'):
     """
     area
@@ -23,7 +23,6 @@ def querry_for(endpoint="area", value='0'):
     membership
     party
     """
-    print('Running get_token.')
     # token = get_token()
     # TODO: get_token WTF!!!!
     # This is hardcoded!!
@@ -40,3 +39,8 @@ def querry_for(endpoint="area", value='0'):
     # print(jsonResponse)
     # print(jsonResponse["election_identifier"])
     # person_ids = jsonResponse["person_ids"]
+
+def get_dictionary():
+    cwd = os.getcwd()
+    os.chdir(cwd+'/front/apiq/')
+    return pd.read_csv('seccion_to_contest.csv')
