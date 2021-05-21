@@ -12,7 +12,7 @@ app.config['SECRET_KEY']= 'my_secret_key'
 ##############################################################################
 
 class Consulta(FlaskForm):
-    consulta = StringField('¿Qué area te gustaría consultar?', validators=[DataRequired()])
+    consulta = StringField('Introduce tu área electoral: ', validators=[DataRequired()])
     submit = SubmitField('Informarse')
 
 
@@ -24,7 +24,7 @@ class Consulta(FlaskForm):
 def index():
     form = Consulta()
     if form.validate_on_submit():
-        session['consulta'] = form.consulta.data
+        session['area_electoral'] = form.consulta.data
         return redirect(url_for('resutado'))
     return render_template('index.html', form=form)
 
@@ -33,7 +33,7 @@ def index():
 ##############################
 @app.route('/resutado')
 def resutado():
-    output = querry_for('area', session['consulta'])
+    output = querry_for('area', session['area_electoral'])
     return render_template('resutado.html', output=output)
 
 
