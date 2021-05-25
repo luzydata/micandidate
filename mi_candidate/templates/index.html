@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        {{ form.consulta.label(class="form-group") }}
+        {{ form.consulta(class='form-control') }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+
+</form>
+
+
+{% endblock %}
