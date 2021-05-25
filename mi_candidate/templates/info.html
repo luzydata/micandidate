@@ -8,4 +8,18 @@
 <br>
 <p>{{ session['api_response']}}</p>
 
+<div class="control-group">
+    <p><strong>Check the enabled BRI Ports</strong></p>
+    {% for name, field in form._fields.items() %}
+        {% if name != 'csrf_token' %}
+            <label class="checkbox inline">
+                {{ field(value=1) }} {{ field.label }}
+            </label>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+
+
 {% endblock %}
