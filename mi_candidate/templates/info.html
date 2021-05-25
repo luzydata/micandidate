@@ -2,8 +2,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1></h1>
-<p> el valor consultado fue: {{session['consulta'] }}</p>
+<p> el estado fue: {{ session['estado']}}</p>
+<br>
+<p> el area electoral consultada fue: {{session['area_electoral'] }}</p>
 <br>
 <p>{{ session['api_response']}}</p>
 

@@ -9,5 +9,12 @@ from wtforms import ValidationError
 ###### USER QUERY ############
 ##############################
 class ConsultaForm(FlaskForm):
-    consulta = StringField('Introduce tu área electoral: ', validators=[DataRequired()])
+    estado = StringField(
+                        'Introduce tu Estado: ',
+                        validators=[DataRequired()]
+                        )
+    area_electoral = StringField(
+                        'Introduce tu seccion electoral: ',
+                        validators=[DataRequired()]
+                        )
     submit = SubmitField('Informarse')
