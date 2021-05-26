@@ -21,4 +21,6 @@ TODO:  __________
  - navbar
  - solve 4h token refresh
  - Bootstapit <3
- - get help ;)  
+ - get help ;)
+ - _________________________________
+ - I WHANT GEOLOCATED MAPS AND STUFF!!!!
