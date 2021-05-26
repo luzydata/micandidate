@@ -26,6 +26,7 @@ se requiere colocar manualmente el token para el heder a https://www.apielectora
  - solve 4h token refresh
  - Bootstapit <3
  - get help ;)
+ - G> https://docs.gunicorn.org/en/latest/design.html 
  - _________________________________
  - I WHANT GEOLOCATED MAPS AND STUFF!!!!
 
