@@ -17,6 +17,7 @@ unicamente funciona con códigos de la CDMX
 se requiere colocar manualmente el token para el heder a https://www.apielectoral.mx/
 
 ## TODO:  __________
+ - visitante! be warned --> revisar las branches <<--
  - documentar 
  - códigos electorales MX
  - variables de entorno 
