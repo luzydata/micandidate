@@ -16,7 +16,8 @@ Aplicación de Flask que realiza un request a api https://github.com/Socialtic/m
 
 ## TODO:  _________________________
  - visitante! be warned --> revisar las branches <<--
- - documentar 
+ - documentar
+ - core.route 'estado'
  - códigos electorales MX
  - variables de entorno 
  - tabla respuesta info.html
