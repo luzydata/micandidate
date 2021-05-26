@@ -29,11 +29,12 @@ Aplicación de Flask que realiza un request a api https://github.com/Socialtic/m
  - _________________________________
  - I WHANT GEOLOCATED MAPS AND STUFF!!!!
 
-## TIME LINE: ______________________
+## Time Line: ______________________
+
 26may21 _____06jun21 || - 10d -
 dead_ _ _ _ _02jun21 || - 07d -
 
-## follow up ?______________________
+## Follow up ?______________________
 elections map analysis
 
 ## Links: _________________________
