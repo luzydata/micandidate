@@ -35,8 +35,8 @@ dead_ _ _ _ _02jun21 || - 07d -
 ## follow up ?______________________
 elections map analysis
 
-### Links: _________________________
-https://www.ine.mx/voto-y-elecciones/elecciones-2021/
-https://www.apielectoral.mx/
-https://socialtic.org/
+## Links: _________________________
+ - https://www.ine.mx/voto-y-elecciones/elecciones-2021/
+ - https://www.apielectoral.mx/
+ - https://socialtic.org/
 
