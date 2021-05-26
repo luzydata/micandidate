@@ -8,15 +8,13 @@ It's a flask app that makes a request to this api project: https://github.com/So
 
 Aplicación de Flask que realiza un request a api https://github.com/Socialtic/mx-elections-2021, utilixando el codigo electoral de la INE.
 
+## Nota: __________________________
+ - Revisa el punto 1 y 2 del 'TODO'. (pero más vale terminado que perfecto! escribeme -->> https://github.com/luzydata/micandidate/discussions <<--)
+ - Unicamente funciona con códigos de la CDMX
+ - se requiere colocar manualmente el token para el heder a https://www.apielectoral.mx/ en --> https://github.com/luzydata/micandidate/blob/master/mi_candidate/core/api_query.py
+ - En este momento la mejor apuesta es branch api_query que es en la que estoy trabajando
 
-## Nota: _________
-
-Revisa el punto 1 y 2 del 'TODO'. (pero más vale terminado que perfecto! escribeme -->> https://github.com/luzydata/micandidate/discussions <<--)
-
-unicamente funciona con códigos de la CDMX
-se requiere colocar manualmente el token para el heder a https://www.apielectoral.mx/
-
-## TODO:  __________
+## TODO:  _________________________
  - visitante! be warned --> revisar las branches <<--
  - documentar 
  - códigos electorales MX
@@ -37,7 +35,7 @@ dead_ _ _ _ _02jun21 || - 07d -
 ## follow up ?______________________
 elections map analysis
 
-### Links:
+### Links: _________________________
 https://www.ine.mx/voto-y-elecciones/elecciones-2021/
 https://www.apielectoral.mx/
 https://socialtic.org/
