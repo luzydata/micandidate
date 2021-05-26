@@ -24,3 +24,7 @@ TODO:  __________
  - get help ;)
  - _________________________________
  - I WHANT GEOLOCATED MAPS AND STUFF!!!!
+
+# follow up ?_________________
+
+elections map analysis
