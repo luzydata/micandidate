@@ -41,4 +41,5 @@ elections map analysis
  - https://www.ine.mx/voto-y-elecciones/elecciones-2021/
  - https://www.apielectoral.mx/
  - https://socialtic.org/
+ - https://flask.palletsprojects.com/en/2.0.x/
 
