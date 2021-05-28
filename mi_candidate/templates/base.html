@@ -10,21 +10,19 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
             <div class="collapse navbar-collapse" id="navbarText">
-
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{{ url_for('core.index') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('core.info') }}">About</a>
-                </li>
-                {% if current_user.is_authenticated %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{{ url_for('core.index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('core.info') }}">About</a>
+                    </li>
                     <li class="nav-item">
                       <a class="nav-link disabled" tabindex="-1" aria-disabled="true" href="{{ url_for('users.logout') }}">Log out</a>
                     </li>
@@ -34,31 +32,19 @@
                     <li class="nav-item">
                       <a class="nav-link disabled" tabindex="-1" aria-disabled="true class="nav-link" href="#">New post</a>
                     </li>
-                {% else %}
                     <li class="nav-link">
                         <a class="nav-link disabled" tabindex="-1" aria-disabled="true href="{{ url_for('users.login') }}">Log In</a>
                     </li>
                     <li class="nav-link">
                         <a class="nav-link disabled" tabindex="-1" aria-disabled="true href="{{ url_for('users.register') }}">Register</a>
                     </li>
-                {% endif %}
-              </ul>
-          </div>
+                </ul>
+            </div>
 
-              <form class="d-flex" method="POST>
-                  {{ form.hidden_tag() }}
-                  <div class="form-group">
-                      {{ form.consulta.label(class="form-group") }}
-                      {{ form.consulta(class='form-control me-2' type="search" placeholder="Área electoral" aria-label="Buscar") }}
-                  </div>
-                  <br>
-                  <div class="form-group">
-                      {{ form.submit(class="btn btn-outline-info" type="submit") }}
-                  </div>
-
-                <input class="form-control >
-                <button class=">Buscar</button>
-              </form>
+            <form class="d-flex" method="POST">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
 
           </div>
         </nav>
