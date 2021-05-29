@@ -2,21 +2,26 @@ from mi_candidate import db, login_manager
 from datetime import datetime
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
+
+################################################################################
+# RESOURCES MANAGER MODEL ######################################################
+################################################################################
+# The resource_loader allows an authenticate request to get a Resource response
+# config at mi_candidate/__init__.py
+
+
+################################################################################
+# LOGIN MANAGER MODEL ##########################################################
+################################################################################
+# The user_loader decorator allows flask-login to load the current user
+# and grab their id.
+# config at mi_candidate/__init__.py
 # By inheriting the UserMixin we get access to a lot of built-in attributes
 # which we will be able to call in our views!
 # is_authenticated()
 # is_active()
 # is_anonymous()
 # get_id()
-
-
-# The user_loader decorator allows flask-login to load the current user
-# and grab their id.
-
-################################################################################
-# LOGIN MANAGER MODEL ##########################################################
-################################################################################
-# config at mi_candidate/__init__.py
 
 @login_manager.user_loader
 def load_user(user_id):

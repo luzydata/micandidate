@@ -4,11 +4,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
+from flask_restful import Api,Resource
+from flask_jwt import JWT ,jwt_required
+
+from secure_check import authenticate,identity
+
+
 ################################################################################
 # APP INITIALIZATION ###########################################################
 ################################################################################
 app = Flask(__name__)
-
 ##############################
 ###### CONFIG ################
 ##############################
@@ -29,13 +34,20 @@ db = SQLAlchemy(app)
 Migrate(app,db)
 
 ################################################################################
+# API INITIALIZATION ###########################################################
+################################################################################
+api = Api(app)
+jwt = JWT(app, authenticate, identity)
+
+
+
+################################################################################
 # LOGIN MANAGER CONFIG #########################################################
 ################################################################################
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 # TODO: create html template
-
 
 ################################################################################
 # BLUEPRINTS REGISTRY & CONFIG #################################################
@@ -47,3 +59,9 @@ from mi_candidate.error_pages.handlers import error_pages
 app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(error_pages)
+
+################################################################################
+# API RESOURCES REGISTRY & CONFIG #################################################
+################################################################################
+api.add_resource(PuppyResource, '/puppy/<string:name>')
+api.add_resource(AllPuppies,'/puppies')
